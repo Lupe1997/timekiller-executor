@@ -1,0 +1,9 @@
+.idea
+.classpath
+.project
+*.iml
+target/
+.DS_Store
+.gitattributes
+.gitignore
+src/main/java/timekiller/executor/Test.java
