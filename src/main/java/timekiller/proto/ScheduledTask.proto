@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option java_package = "com.moonflying.timekiller.proto";
+option java_outer_classname = "ScheduledTaskProtoBuf";
+
+message RegisterScheduledTaskRequest {
+  repeated ScheduledTask scheduledTasks = 1;
+}
+
+message ScheduledTask {
+  string className = 1;
+  string method = 2;
+  string corn = 3;
+}
+
+message ExecuteScheduledTaskRequest {
+  string className = 1;
+  string method = 2;
+}
