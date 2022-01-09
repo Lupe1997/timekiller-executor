@@ -1,4 +1,4 @@
-package timekiller.executor;
+package com.moonflying.timekiller.executor;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

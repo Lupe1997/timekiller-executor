@@ -1,5 +1,6 @@
-package timekiller.executor.core.starter.client;
+package com.moonflying.timekiller.executor.core.starter.client;
 
+import com.moonflying.timekiller.proto.ScheduledTaskProtoBuf;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -10,8 +11,6 @@ import io.netty.handler.codec.protobuf.ProtobufEncoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.concurrent.*;
-
 /**
  * @Author ffei
  * @Date 2022/1/2 16:24
@@ -21,7 +20,7 @@ public class EmbeddedClient {
 
     private Thread thread;
 
-    public void start(final String address, final int port) {
+    public void start(final String dispatcherHost, final int port, String appName) {
         thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -36,13 +35,16 @@ public class EmbeddedClient {
                                 @Override
                                 public void initChannel(SocketChannel channel) throws Exception {
                                     channel.pipeline()
-                                            .addLast(new ProtobufEncoder())
-                                            .addLast(new EmbeddedClientHandler());
+//                                            .addLast(new ProtobufVarint32FrameDecoder())
+                                            .addLast(new ProtobufDecoder(ScheduledTaskProtoBuf.TaskMessage.getDefaultInstance()))
+                                            .addLast(new EmbeddedClientHandler(appName))
+//                                            .addLast(new ProtobufVarint32LengthFieldPrepender())
+                                            .addLast(new ProtobufEncoder());
                                 }
                             });
 
                     // bind
-                    ChannelFuture future = bootstrap.bind(port).sync();
+                    ChannelFuture future = bootstrap.connect(dispatcherHost, port).sync();
 
                     logger.info(">>>>>>>>>>> execitor server start success, netty client = {}, port = {}", EmbeddedClient.class, port);
 

@@ -6,4 +6,4 @@ target/
 .DS_Store
 .gitattributes
 .gitignore
-src/main/java/timekiller/executor/Test.java
+src/main/java/com/moonflying/timekiller/executor/Test.java

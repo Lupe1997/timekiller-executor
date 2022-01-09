@@ -1,9 +1,9 @@
-package timekiller.executor.core.executor;
+package com.moonflying.timekiller.executor.core.executor;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import timekiller.executor.core.starter.impl.ExecutorStarter;
 
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
@@ -24,6 +24,10 @@ public abstract class AbstractScheduledTaskExecutor {
         AbstractScheduledTaskExecutor executor = scheduledTaskExecutorRepository.put(scheduledTaskName, scheduledTaskExecutor);
         logger.info(">>>>>>>>>>> time-killer register scheduledTaskExecutor success, name:{}, executor:{}", scheduledTaskName, scheduledTaskExecutor);
         return executor;
+    }
+
+    public static ConcurrentMap<String, AbstractScheduledTaskExecutor> getAllScheduledTaskRepository() {
+        return scheduledTaskExecutorRepository;
     }
 
     /**

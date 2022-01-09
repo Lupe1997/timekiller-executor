@@ -1,6 +1,6 @@
-package timekiller.executor.core.executor.impl;
+package com.moonflying.timekiller.executor.core.executor.impl;
 
-import timekiller.executor.core.executor.AbstractScheduledTaskExecutor;
+import com.moonflying.timekiller.executor.core.executor.AbstractScheduledTaskExecutor;
 import java.lang.reflect.Method;
 
 /**
@@ -9,12 +9,14 @@ import java.lang.reflect.Method;
  */
 public class ScheduledTaskExecutor extends AbstractScheduledTaskExecutor {
     private final Object scheduledTaskBean;
+    private final String corn;
     private final Method scheduledTaskMethod;
     private final Method initMethod;
     private final Method destroyMethod;
 
-    public ScheduledTaskExecutor(Object scheduledTaskBean, Method scheduledTaskMethod, Method initMethod, Method destroyMethod) {
+    public ScheduledTaskExecutor(Object scheduledTaskBean, String corn, Method scheduledTaskMethod, Method initMethod, Method destroyMethod) {
         this.scheduledTaskBean = scheduledTaskBean;
+        this.corn = corn;
         this.scheduledTaskMethod = scheduledTaskMethod;
         this.initMethod = initMethod;
         this.destroyMethod = destroyMethod;
@@ -38,5 +40,9 @@ public class ScheduledTaskExecutor extends AbstractScheduledTaskExecutor {
     @Override
     public void destroy() throws Exception {
         if (destroyMethod != null) destroyMethod.invoke(scheduledTaskBean);
+    }
+
+    public String getCorn() {
+        return this.corn;
     }
 }

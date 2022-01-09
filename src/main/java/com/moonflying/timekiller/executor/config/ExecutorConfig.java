@@ -1,4 +1,4 @@
-package timekiller.executor.config;
+package com.moonflying.timekiller.executor.config;
 
 /**
  * @Author ffei
