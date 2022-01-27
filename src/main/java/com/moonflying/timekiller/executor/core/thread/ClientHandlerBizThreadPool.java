@@ -1,4 +1,4 @@
-package com.moonflying.timekiller.executor.core.Thread;
+package com.moonflying.timekiller.executor.core.thread;
 
 import java.util.concurrent.*;
 
