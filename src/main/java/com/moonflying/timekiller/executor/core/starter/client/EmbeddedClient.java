@@ -46,7 +46,7 @@ public class EmbeddedClient {
                     // bind
                     ChannelFuture future = bootstrap.connect(dispatcherHost, port).sync();
 
-                    logger.info(">>>>>>>>>>> execitor server start success, netty client = {}, port = {}", EmbeddedClient.class, port);
+                    logger.info(">>>>>>>>>>> executor server start success, netty client = {}, port = {}", EmbeddedClient.class, port);
 
                     // wait util stop
                     future.channel().closeFuture().sync();
