@@ -1,5 +1,6 @@
 package com.moonflying.timekiller.executor.core.starter.impl;
 
+import com.moonflying.timekiller.executor.annotation.ScheduledTaskClass;
 import com.moonflying.timekiller.executor.core.executor.AbstractScheduledTaskExecutor;
 import com.moonflying.timekiller.executor.core.executor.impl.ScheduledTaskExecutor;
 import org.slf4j.Logger;
@@ -16,25 +17,21 @@ import com.moonflying.timekiller.executor.core.starter.AbstractExecutorStarter;
 
 import java.lang.reflect.Method;
 import java.util.Map;
+import java.util.ServiceLoader;
 
 /**
  * @Author ffei
  * @Date 2021/11/20 23:26
+ *
+ * TODO 删除了Spring，需要自己实现初始化启动代码（删除了SmartInitializingSingleton->afterSingletonsInstantiated）
+ * TODO 删除了 DisposableBean，需要自己实现对象销毁后调用stop方法
  */
-public class ExecutorStarter extends AbstractExecutorStarter implements ApplicationContextAware, SmartInitializingSingleton, DisposableBean {
+public class ExecutorStarter extends AbstractExecutorStarter {
     private static final Logger logger = LoggerFactory.getLogger(ExecutorStarter.class);
 
-    private ApplicationContext applicationContext;
-
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        this.applicationContext = applicationContext;
-    }
-
-    @Override
     public void afterSingletonsInstantiated() {
         // init JobHandler Repository (for method)
-        initJobHandlerMethodRepository(applicationContext);
+        initJobHandlerMethodRepository();
 
         // super start
         try {
@@ -44,15 +41,10 @@ public class ExecutorStarter extends AbstractExecutorStarter implements Applicat
         }
     }
 
-    @Override
-    public void destroy() throws Exception {
-        super.destroy();
-    }
+    private void initJobHandlerMethodRepository() {
+        ServiceLoader<ScheduledTaskClass> taskClasses = ServiceLoader.load(ScheduledTaskClass.class);
 
-    private void initJobHandlerMethodRepository(ApplicationContext applicationContext) {
-        if (applicationContext == null) {
-            return;
-        }
+
         // init job handler from method
         String[] beanNames = applicationContext.getBeanNamesForType(Object.class, false, true);
         for (String beanName : beanNames) {
