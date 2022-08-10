@@ -26,10 +26,9 @@ public class ScheduledTaskExecutor {
         this.scheduledTaskMethod = scheduledTaskMethod;
     }
 
-    public static ScheduledTaskExecutor registerScheduledTaskExecutor(String scheduledTaskName, ScheduledTaskExecutor scheduledTaskExecutor) {
-        ScheduledTaskExecutor executor = scheduledTaskExecutorRepository.put(scheduledTaskName, scheduledTaskExecutor);
+    public static void registerScheduledTaskExecutor(String scheduledTaskName, ScheduledTaskExecutor scheduledTaskExecutor) {
+        scheduledTaskExecutorRepository.put(scheduledTaskName, scheduledTaskExecutor);
         logger.info(">>>>>>>>>>> time-killer register scheduledTaskExecutor success, name:{}, executor:{}", scheduledTaskName, scheduledTaskExecutor);
-        return executor;
     }
 
     public static ScheduledTaskExecutor getScheduledTaskHandler(String scheduledTaskName) {
