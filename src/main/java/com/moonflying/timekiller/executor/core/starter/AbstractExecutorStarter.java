@@ -1,8 +1,12 @@
 package com.moonflying.timekiller.executor.core.starter;
 
+import com.moonflying.timekiller.executor.annotation.ScheduledTask;
+import com.moonflying.timekiller.executor.core.executor.ScheduledTaskExecutor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.moonflying.timekiller.executor.core.messenger.EmbeddedClient;
+
+import java.lang.reflect.Method;
 
 /**
  * @Author ffei
@@ -40,6 +44,22 @@ public abstract class AbstractExecutorStarter {
                 logger.error(e.getMessage(), e);
             }
         }
+    }
+
+    protected void registerTaskHandler(ScheduledTask scheduledTask, Object bean, Method executeMethod){
+        if (scheduledTask == null) {
+            return;
+        }
+
+        String taskName = scheduledTask.name();
+        // make and simplify the variables since they'll be called several times later
+        if (ScheduledTaskExecutor.getScheduledTaskHandler(taskName) != null)
+            throw new RuntimeException("scheduled task [" + taskName + "] naming conflicts.");
+
+        executeMethod.setAccessible(true);
+
+        // registry scheduledTaskHandler
+        ScheduledTaskExecutor.registerScheduledTaskExecutor(taskName, new ScheduledTaskExecutor(bean, scheduledTask.cron(), executeMethod));
     }
 
     // ---------------------- executor-server (rpc customer) ----------------------

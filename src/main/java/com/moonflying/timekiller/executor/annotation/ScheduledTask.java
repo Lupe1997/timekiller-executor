@@ -14,20 +14,10 @@ public @interface ScheduledTask {
     /**
      * The name and id of the scheduled task.
      */
-    String value();
+    String name();
 
     /**
      * Cron expression.
      */
     String cron();
-
-    /**
-     * init task, invoked when JobThread init
-     */
-    String init() default "";
-
-    /**
-     * destroy task, invoked when JobThread destroy
-     */
-    String destroy() default "";
 }

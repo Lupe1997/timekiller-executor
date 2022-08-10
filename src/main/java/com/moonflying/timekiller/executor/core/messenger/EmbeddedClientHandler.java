@@ -1,8 +1,7 @@
 package com.moonflying.timekiller.executor.core.messenger;
 
 import com.moonflying.timekiller.executor.core.thread.ClientHandlerBizThreadPool;
-import com.moonflying.timekiller.executor.core.executor.AbstractScheduledTaskExecutor;
-import com.moonflying.timekiller.executor.core.executor.impl.ScheduledTaskExecutor;
+import com.moonflying.timekiller.executor.core.executor.ScheduledTaskExecutor;
 import com.moonflying.timekiller.proto.ScheduledTaskProtoBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -28,7 +27,7 @@ public class EmbeddedClientHandler extends SimpleChannelInboundHandler<Scheduled
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        List<ScheduledTaskProtoBuf.ScheduledTask> scheduledTasks = AbstractScheduledTaskExecutor
+        List<ScheduledTaskProtoBuf.ScheduledTask> scheduledTasks = ScheduledTaskExecutor
                 .getAllScheduledTaskRepository()
                 .entrySet()
                 .stream()
@@ -61,7 +60,7 @@ public class EmbeddedClientHandler extends SimpleChannelInboundHandler<Scheduled
                         @Override
                         public void run() {
                             try {
-                                AbstractScheduledTaskExecutor.getScheduledTaskHandler(executeRequest.getTaskName()).execute();
+                                ScheduledTaskExecutor.getScheduledTaskHandler(executeRequest.getTaskName()).execute();
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }

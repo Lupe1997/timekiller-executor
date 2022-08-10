@@ -1,7 +1,7 @@
 package com.moonflying.timekiller.executor;
 
 import com.moonflying.timekiller.executor.core.starter.AbstractExecutorStarter;
-import com.moonflying.timekiller.executor.core.starter.impl.ExecutorStarter;
+import com.moonflying.timekiller.executor.core.starter.impl.SPIExecutorStarter;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -18,7 +18,7 @@ public class Test {
         Class<?>[] paramTypes = method.getParameterTypes();
         method.invoke(new Son(),new Object[paramTypes.length]);
 
-        AbstractExecutorStarter starter = new ExecutorStarter();
+        AbstractExecutorStarter starter = new SPIExecutorStarter();
         starter.setAppName("");
         starter.setDispatcherHost("");
         starter.setDispatcherPort(1);
