@@ -16,10 +16,6 @@ public class ScheduledTaskExecutor {
 
     private static final ConcurrentMap<String, ScheduledTaskExecutor> scheduledTaskExecutorRepository = new ConcurrentHashMap<>();
 
-    public static ScheduledTaskExecutor getScheduledTaskHandler(String scheduledTaskName) {
-        return scheduledTaskExecutorRepository.get(scheduledTaskName);
-    }
-
     private final Object scheduledTaskBean;
     private final String corn;
     private final Method scheduledTaskMethod;
@@ -30,6 +26,20 @@ public class ScheduledTaskExecutor {
         this.scheduledTaskMethod = scheduledTaskMethod;
     }
 
+    public static ScheduledTaskExecutor registerScheduledTaskExecutor(String scheduledTaskName, ScheduledTaskExecutor scheduledTaskExecutor) {
+        ScheduledTaskExecutor executor = scheduledTaskExecutorRepository.put(scheduledTaskName, scheduledTaskExecutor);
+        logger.info(">>>>>>>>>>> time-killer register scheduledTaskExecutor success, name:{}, executor:{}", scheduledTaskName, scheduledTaskExecutor);
+        return executor;
+    }
+
+    public static ScheduledTaskExecutor getScheduledTaskHandler(String scheduledTaskName) {
+        return scheduledTaskExecutorRepository.get(scheduledTaskName);
+    }
+
+    public static ConcurrentMap<String, ScheduledTaskExecutor> getAllScheduledTaskRepository() {
+        return scheduledTaskExecutorRepository;
+    }
+
     public void execute() throws Exception {
         Class<?>[] paramTypes = scheduledTaskMethod.getParameterTypes();
         if (paramTypes.length > 0) {
@@ -37,16 +47,6 @@ public class ScheduledTaskExecutor {
         } else {
             scheduledTaskMethod.invoke(scheduledTaskBean);
         }
-    }
-
-    public static ScheduledTaskExecutor registerScheduledTaskExecutor(String scheduledTaskName, ScheduledTaskExecutor scheduledTaskExecutor) {
-        ScheduledTaskExecutor executor = scheduledTaskExecutorRepository.put(scheduledTaskName, scheduledTaskExecutor);
-        logger.info(">>>>>>>>>>> time-killer register scheduledTaskExecutor success, name:{}, executor:{}", scheduledTaskName, scheduledTaskExecutor);
-        return executor;
-    }
-
-    public static ConcurrentMap<String, ScheduledTaskExecutor> getAllScheduledTaskRepository() {
-        return scheduledTaskExecutorRepository;
     }
 
     public String getCorn() {
