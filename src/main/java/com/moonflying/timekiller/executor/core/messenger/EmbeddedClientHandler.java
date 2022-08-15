@@ -2,7 +2,7 @@ package com.moonflying.timekiller.executor.core.messenger;
 
 import com.moonflying.timekiller.executor.core.thread.ClientHandlerBizThreadPool;
 import com.moonflying.timekiller.executor.core.executor.ScheduledTaskExecutor;
-import com.moonflying.timekiller.proto.ScheduledTaskProtoBuf;
+import com.moonflying.timekiller.proto.ScheduledTaskMessage;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.timeout.IdleStateEvent;
@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
  * @Author ffei
  * @Date 2022/1/3 15:19
  */
-public class EmbeddedClientHandler extends SimpleChannelInboundHandler<ScheduledTaskProtoBuf.TaskMessage> {
+public class EmbeddedClientHandler extends SimpleChannelInboundHandler<ScheduledTaskMessage.TaskMessage> {
     private static final Logger logger = LoggerFactory.getLogger(EmbeddedClientHandler.class);
 
     private final String appName;
@@ -27,22 +27,22 @@ public class EmbeddedClientHandler extends SimpleChannelInboundHandler<Scheduled
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        List<ScheduledTaskProtoBuf.ScheduledTask> scheduledTasks = ScheduledTaskExecutor
+        List<ScheduledTaskMessage.ScheduledTask> scheduledTasks = ScheduledTaskExecutor
                 .getAllScheduledTaskRepository()
                 .entrySet()
                 .stream()
                 .map(
-                        e -> ScheduledTaskProtoBuf.ScheduledTask.newBuilder()
+                        e -> ScheduledTaskMessage.ScheduledTask.newBuilder()
                                 .setAppName(this.appName)
                                 .setTaskName(e.getKey())
                                 .setCorn(((ScheduledTaskExecutor) e.getValue()).getCorn())
                                 .build()
                 )
                 .collect(Collectors.toList());
-        ScheduledTaskProtoBuf.TaskMessage taskMessage = ScheduledTaskProtoBuf.TaskMessage.newBuilder()
-                .setDataType(ScheduledTaskProtoBuf.TaskMessage.DataType.RegisterRequest)
+        ScheduledTaskMessage.TaskMessage taskMessage = ScheduledTaskMessage.TaskMessage.newBuilder()
+                .setDataType(ScheduledTaskMessage.TaskMessage.DataType.RegisterRequest)
                 .setRegisterRequest(
-                        ScheduledTaskProtoBuf.RegisterScheduledTaskRequest.newBuilder()
+                        ScheduledTaskMessage.RegisterScheduledTaskRequest.newBuilder()
                                 .addAllScheduledTasks(scheduledTasks)
                                 .build()
                 )
@@ -51,10 +51,10 @@ public class EmbeddedClientHandler extends SimpleChannelInboundHandler<Scheduled
     }
 
     @Override
-    protected void channelRead0(ChannelHandlerContext ctx, ScheduledTaskProtoBuf.TaskMessage msg) throws Exception {
-        ScheduledTaskProtoBuf.TaskMessage.DataType dataType = msg.getDataType();
-        if (dataType == ScheduledTaskProtoBuf.TaskMessage.DataType.ExecuteScheduledTaskRequest) {
-            ScheduledTaskProtoBuf.ExecuteScheduledTaskRequest executeRequest = msg.getExecuteRequest();
+    protected void channelRead0(ChannelHandlerContext ctx, ScheduledTaskMessage.TaskMessage msg) throws Exception {
+        ScheduledTaskMessage.TaskMessage.DataType dataType = msg.getDataType();
+        if (dataType == ScheduledTaskMessage.TaskMessage.DataType.ExecuteScheduledTaskRequest) {
+            ScheduledTaskMessage.ExecuteScheduledTaskRequest executeRequest = msg.getExecuteRequest();
             ClientHandlerBizThreadPool.bizThreadPool.execute(
                     new Runnable() {
                         @Override

@@ -3,8 +3,8 @@
 
 package com.moonflying.timekiller.proto;
 
-public final class ScheduledTaskProtoBuf {
-  private ScheduledTaskProtoBuf() {}
+public final class ScheduledTaskMessage {
+  private ScheduledTaskMessage() {}
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistryLite registry) {
   }
@@ -19,19 +19,11 @@ public final class ScheduledTaskProtoBuf {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <pre>
-     *用dataType 来标识传的是哪一个枚举类型
-     * </pre>
-     *
      * <code>.TaskMessage.DataType dataType = 1;</code>
      * @return The enum numeric value on the wire for dataType.
      */
     int getDataTypeValue();
     /**
-     * <pre>
-     *用dataType 来标识传的是哪一个枚举类型
-     * </pre>
-     *
      * <code>.TaskMessage.DataType dataType = 1;</code>
      * @return The dataType.
      */
@@ -199,22 +191,18 @@ public final class ScheduledTaskProtoBuf {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return ScheduledTaskProtoBuf.internal_static_TaskMessage_descriptor;
+      return ScheduledTaskMessage.internal_static_TaskMessage_descriptor;
     }
 
     @Override
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return ScheduledTaskProtoBuf.internal_static_TaskMessage_fieldAccessorTable
+      return ScheduledTaskMessage.internal_static_TaskMessage_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               TaskMessage.class, Builder.class);
     }
 
     /**
-     * <pre>
-     *定义一个枚举类型
-     * </pre>
-     *
      * Protobuf enum {@code TaskMessage.DataType}
      */
     public enum DataType
@@ -377,10 +365,6 @@ public final class ScheduledTaskProtoBuf {
     public static final int DATATYPE_FIELD_NUMBER = 1;
     private int dataType_;
     /**
-     * <pre>
-     *用dataType 来标识传的是哪一个枚举类型
-     * </pre>
-     *
      * <code>.TaskMessage.DataType dataType = 1;</code>
      * @return The enum numeric value on the wire for dataType.
      */
@@ -388,10 +372,6 @@ public final class ScheduledTaskProtoBuf {
       return dataType_;
     }
     /**
-     * <pre>
-     *用dataType 来标识传的是哪一个枚举类型
-     * </pre>
-     *
      * <code>.TaskMessage.DataType dataType = 1;</code>
      * @return The dataType.
      */
@@ -711,18 +691,18 @@ public final class ScheduledTaskProtoBuf {
         TaskMessageOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return ScheduledTaskProtoBuf.internal_static_TaskMessage_descriptor;
+        return ScheduledTaskMessage.internal_static_TaskMessage_descriptor;
       }
 
       @Override
       protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return ScheduledTaskProtoBuf.internal_static_TaskMessage_fieldAccessorTable
+        return ScheduledTaskMessage.internal_static_TaskMessage_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 TaskMessage.class, Builder.class);
       }
 
-      // Construct using com.moonflying.timekiller.proto.ScheduledTaskProtoBuf.TaskMessage.newBuilder()
+      // Construct using com.moonflying.timekiller.proto.ScheduledTaskMessage.TaskMessage.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -750,7 +730,7 @@ public final class ScheduledTaskProtoBuf {
       @Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return ScheduledTaskProtoBuf.internal_static_TaskMessage_descriptor;
+        return ScheduledTaskMessage.internal_static_TaskMessage_descriptor;
       }
 
       @Override
@@ -907,10 +887,6 @@ public final class ScheduledTaskProtoBuf {
 
       private int dataType_ = 0;
       /**
-       * <pre>
-       *用dataType 来标识传的是哪一个枚举类型
-       * </pre>
-       *
        * <code>.TaskMessage.DataType dataType = 1;</code>
        * @return The enum numeric value on the wire for dataType.
        */
@@ -918,10 +894,6 @@ public final class ScheduledTaskProtoBuf {
         return dataType_;
       }
       /**
-       * <pre>
-       *用dataType 来标识传的是哪一个枚举类型
-       * </pre>
-       *
        * <code>.TaskMessage.DataType dataType = 1;</code>
        * @param value The enum numeric value on the wire for dataType to set.
        * @return This builder for chaining.
@@ -933,10 +905,6 @@ public final class ScheduledTaskProtoBuf {
         return this;
       }
       /**
-       * <pre>
-       *用dataType 来标识传的是哪一个枚举类型
-       * </pre>
-       *
        * <code>.TaskMessage.DataType dataType = 1;</code>
        * @return The dataType.
        */
@@ -947,10 +915,6 @@ public final class ScheduledTaskProtoBuf {
         return result == null ? DataType.UNRECOGNIZED : result;
       }
       /**
-       * <pre>
-       *用dataType 来标识传的是哪一个枚举类型
-       * </pre>
-       *
        * <code>.TaskMessage.DataType dataType = 1;</code>
        * @param value The dataType to set.
        * @return This builder for chaining.
@@ -965,10 +929,6 @@ public final class ScheduledTaskProtoBuf {
         return this;
       }
       /**
-       * <pre>
-       *用dataType 来标识传的是哪一个枚举类型
-       * </pre>
-       *
        * <code>.TaskMessage.DataType dataType = 1;</code>
        * @return This builder for chaining.
        */
@@ -1562,13 +1522,13 @@ public final class ScheduledTaskProtoBuf {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return ScheduledTaskProtoBuf.internal_static_RegisterScheduledTaskRequest_descriptor;
+      return ScheduledTaskMessage.internal_static_RegisterScheduledTaskRequest_descriptor;
     }
 
     @Override
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return ScheduledTaskProtoBuf.internal_static_RegisterScheduledTaskRequest_fieldAccessorTable
+      return ScheduledTaskMessage.internal_static_RegisterScheduledTaskRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               RegisterScheduledTaskRequest.class, Builder.class);
     }
@@ -1779,18 +1739,18 @@ public final class ScheduledTaskProtoBuf {
         RegisterScheduledTaskRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return ScheduledTaskProtoBuf.internal_static_RegisterScheduledTaskRequest_descriptor;
+        return ScheduledTaskMessage.internal_static_RegisterScheduledTaskRequest_descriptor;
       }
 
       @Override
       protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return ScheduledTaskProtoBuf.internal_static_RegisterScheduledTaskRequest_fieldAccessorTable
+        return ScheduledTaskMessage.internal_static_RegisterScheduledTaskRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 RegisterScheduledTaskRequest.class, Builder.class);
       }
 
-      // Construct using com.moonflying.timekiller.proto.ScheduledTaskProtoBuf.RegisterScheduledTaskRequest.newBuilder()
+      // Construct using com.moonflying.timekiller.proto.ScheduledTaskMessage.RegisterScheduledTaskRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1821,7 +1781,7 @@ public final class ScheduledTaskProtoBuf {
       @Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return ScheduledTaskProtoBuf.internal_static_RegisterScheduledTaskRequest_descriptor;
+        return ScheduledTaskMessage.internal_static_RegisterScheduledTaskRequest_descriptor;
       }
 
       @Override
@@ -2374,13 +2334,13 @@ public final class ScheduledTaskProtoBuf {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return ScheduledTaskProtoBuf.internal_static_ScheduledTask_descriptor;
+      return ScheduledTaskMessage.internal_static_ScheduledTask_descriptor;
     }
 
     @Override
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return ScheduledTaskProtoBuf.internal_static_ScheduledTask_fieldAccessorTable
+      return ScheduledTaskMessage.internal_static_ScheduledTask_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               ScheduledTask.class, Builder.class);
     }
@@ -2513,13 +2473,13 @@ public final class ScheduledTaskProtoBuf {
     @Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getAppNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(appName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, appName_);
       }
-      if (!getTaskNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(taskName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, taskName_);
       }
-      if (!getCornBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(corn_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, corn_);
       }
       unknownFields.writeTo(output);
@@ -2531,13 +2491,13 @@ public final class ScheduledTaskProtoBuf {
       if (size != -1) return size;
 
       size = 0;
-      if (!getAppNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(appName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, appName_);
       }
-      if (!getTaskNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(taskName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, taskName_);
       }
-      if (!getCornBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(corn_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, corn_);
       }
       size += unknownFields.getSerializedSize();
@@ -2682,18 +2642,18 @@ public final class ScheduledTaskProtoBuf {
         ScheduledTaskOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return ScheduledTaskProtoBuf.internal_static_ScheduledTask_descriptor;
+        return ScheduledTaskMessage.internal_static_ScheduledTask_descriptor;
       }
 
       @Override
       protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return ScheduledTaskProtoBuf.internal_static_ScheduledTask_fieldAccessorTable
+        return ScheduledTaskMessage.internal_static_ScheduledTask_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 ScheduledTask.class, Builder.class);
       }
 
-      // Construct using com.moonflying.timekiller.proto.ScheduledTaskProtoBuf.ScheduledTask.newBuilder()
+      // Construct using com.moonflying.timekiller.proto.ScheduledTaskMessage.ScheduledTask.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2723,7 +2683,7 @@ public final class ScheduledTaskProtoBuf {
       @Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return ScheduledTaskProtoBuf.internal_static_ScheduledTask_descriptor;
+        return ScheduledTaskMessage.internal_static_ScheduledTask_descriptor;
       }
 
       @Override
@@ -3204,13 +3164,13 @@ public final class ScheduledTaskProtoBuf {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return ScheduledTaskProtoBuf.internal_static_ExecuteScheduledTaskRequest_descriptor;
+      return ScheduledTaskMessage.internal_static_ExecuteScheduledTaskRequest_descriptor;
     }
 
     @Override
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return ScheduledTaskProtoBuf.internal_static_ExecuteScheduledTaskRequest_fieldAccessorTable
+      return ScheduledTaskMessage.internal_static_ExecuteScheduledTaskRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               ExecuteScheduledTaskRequest.class, Builder.class);
     }
@@ -3267,7 +3227,7 @@ public final class ScheduledTaskProtoBuf {
     @Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getTaskNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(taskName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, taskName_);
       }
       unknownFields.writeTo(output);
@@ -3279,7 +3239,7 @@ public final class ScheduledTaskProtoBuf {
       if (size != -1) return size;
 
       size = 0;
-      if (!getTaskNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(taskName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, taskName_);
       }
       size += unknownFields.getSerializedSize();
@@ -3416,18 +3376,18 @@ public final class ScheduledTaskProtoBuf {
         ExecuteScheduledTaskRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return ScheduledTaskProtoBuf.internal_static_ExecuteScheduledTaskRequest_descriptor;
+        return ScheduledTaskMessage.internal_static_ExecuteScheduledTaskRequest_descriptor;
       }
 
       @Override
       protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return ScheduledTaskProtoBuf.internal_static_ExecuteScheduledTaskRequest_fieldAccessorTable
+        return ScheduledTaskMessage.internal_static_ExecuteScheduledTaskRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 ExecuteScheduledTaskRequest.class, Builder.class);
       }
 
-      // Construct using com.moonflying.timekiller.proto.ScheduledTaskProtoBuf.ExecuteScheduledTaskRequest.newBuilder()
+      // Construct using com.moonflying.timekiller.proto.ScheduledTaskMessage.ExecuteScheduledTaskRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3453,7 +3413,7 @@ public final class ScheduledTaskProtoBuf {
       @Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return ScheduledTaskProtoBuf.internal_static_ExecuteScheduledTaskRequest_descriptor;
+        return ScheduledTaskMessage.internal_static_ExecuteScheduledTaskRequest_descriptor;
       }
 
       @Override
@@ -3802,13 +3762,13 @@ public final class ScheduledTaskProtoBuf {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return ScheduledTaskProtoBuf.internal_static_ExecuteScheduledTaskResponse_descriptor;
+      return ScheduledTaskMessage.internal_static_ExecuteScheduledTaskResponse_descriptor;
     }
 
     @Override
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return ScheduledTaskProtoBuf.internal_static_ExecuteScheduledTaskResponse_fieldAccessorTable
+      return ScheduledTaskMessage.internal_static_ExecuteScheduledTaskResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               ExecuteScheduledTaskResponse.class, Builder.class);
     }
@@ -3914,13 +3874,13 @@ public final class ScheduledTaskProtoBuf {
     @Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getCodeBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(code_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, code_);
       }
       if (success_ != false) {
         output.writeBool(2, success_);
       }
-      if (!getMessageBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, message_);
       }
       unknownFields.writeTo(output);
@@ -3932,14 +3892,14 @@ public final class ScheduledTaskProtoBuf {
       if (size != -1) return size;
 
       size = 0;
-      if (!getCodeBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(code_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, code_);
       }
       if (success_ != false) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, success_);
       }
-      if (!getMessageBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, message_);
       }
       size += unknownFields.getSerializedSize();
@@ -4085,18 +4045,18 @@ public final class ScheduledTaskProtoBuf {
         ExecuteScheduledTaskResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return ScheduledTaskProtoBuf.internal_static_ExecuteScheduledTaskResponse_descriptor;
+        return ScheduledTaskMessage.internal_static_ExecuteScheduledTaskResponse_descriptor;
       }
 
       @Override
       protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return ScheduledTaskProtoBuf.internal_static_ExecuteScheduledTaskResponse_fieldAccessorTable
+        return ScheduledTaskMessage.internal_static_ExecuteScheduledTaskResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 ExecuteScheduledTaskResponse.class, Builder.class);
       }
 
-      // Construct using com.moonflying.timekiller.proto.ScheduledTaskProtoBuf.ExecuteScheduledTaskResponse.newBuilder()
+      // Construct using com.moonflying.timekiller.proto.ScheduledTaskMessage.ExecuteScheduledTaskResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4126,7 +4086,7 @@ public final class ScheduledTaskProtoBuf {
       @Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return ScheduledTaskProtoBuf.internal_static_ExecuteScheduledTaskResponse_descriptor;
+        return ScheduledTaskMessage.internal_static_ExecuteScheduledTaskResponse_descriptor;
       }
 
       @Override
@@ -4521,9 +4481,9 @@ public final class ScheduledTaskProtoBuf {
       "\030\002 \001(\t\022\014\n\004corn\030\003 \001(\t\"/\n\033ExecuteScheduled" +
       "TaskRequest\022\020\n\010taskName\030\001 \001(\t\"N\n\034Execute" +
       "ScheduledTaskResponse\022\014\n\004code\030\001 \001(\t\022\017\n\007s" +
-      "uccess\030\002 \001(\010\022\017\n\007message\030\003 \001(\tB8\n\037com.moo" +
-      "nflying.timekiller.protoB\025ScheduledTaskP" +
-      "rotoBufb\006proto3"
+      "uccess\030\002 \001(\010\022\017\n\007message\030\003 \001(\tB7\n\037com.moo" +
+      "nflying.timekiller.protoB\024ScheduledTaskM" +
+      "essageb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

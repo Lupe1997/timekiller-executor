@@ -1,6 +1,6 @@
 package com.moonflying.timekiller.executor.core.messenger;
 
-import com.moonflying.timekiller.proto.ScheduledTaskProtoBuf;
+import com.moonflying.timekiller.proto.ScheduledTaskMessage;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -36,7 +36,7 @@ public class EmbeddedClient {
                                 public void initChannel(SocketChannel channel) throws Exception {
                                     channel.pipeline()
 //                                            .addLast(new ProtobufVarint32FrameDecoder())
-                                            .addLast(new ProtobufDecoder(ScheduledTaskProtoBuf.TaskMessage.getDefaultInstance()))
+                                            .addLast(new ProtobufDecoder(ScheduledTaskMessage.TaskMessage.getDefaultInstance()))
                                             .addLast(new EmbeddedClientHandler(appName))
 //                                            .addLast(new ProtobufVarint32LengthFieldPrepender())
                                             .addLast(new ProtobufEncoder());

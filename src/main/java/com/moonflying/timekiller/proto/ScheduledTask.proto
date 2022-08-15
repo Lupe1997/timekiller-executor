@@ -1,20 +1,17 @@
 syntax = "proto3";
 
 option java_package = "com.moonflying.timekiller.proto";
-option java_outer_classname = "ScheduledTaskProtoBuf";
+option java_outer_classname = "ScheduledTaskMessage";
 
 message TaskMessage {
-  //定义一个枚举类型
   enum DataType {
     RegisterRequest = 0;
     ExecuteScheduledTaskRequest = 1;
     ExecuteScheduledTaskResponse = 2;
   }
 
-  //用dataType 来标识传的是哪一个枚举类型
   DataType dataType = 1;
 
-  //表示每次枚举类型最多只能出现其中的一个, 节省空间
   oneof dataBody {
     RegisterScheduledTaskRequest registerRequest = 2;
     ExecuteScheduledTaskRequest executeRequest = 3;
