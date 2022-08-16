@@ -9,7 +9,10 @@ import io.netty.handler.timeout.IdleStateEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 import java.util.stream.Collectors;
 
 /**
@@ -26,7 +29,12 @@ public class EmbeddedClientHandler extends SimpleChannelInboundHandler<Scheduled
     }
 
     @Override
-    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+    public void channelActive(ChannelHandlerContext ctx) {
+//        ConcurrentMap<String, ScheduledTaskExecutor> scheduledTaskExecutorRepository = new ConcurrentHashMap<>();
+//        scheduledTaskExecutorRepository.put("task0", new ScheduledTaskExecutor(null, "1 2 3", null));
+//        scheduledTaskExecutorRepository.put("task1", new ScheduledTaskExecutor(null, "4 5 6", null));
+//        scheduledTaskExecutorRepository.put("task2", new ScheduledTaskExecutor(null, "7 8 9", null));
+
         List<ScheduledTaskMessage.ScheduledTask> scheduledTasks = ScheduledTaskExecutor
                 .getAllScheduledTaskRepository()
                 .entrySet()

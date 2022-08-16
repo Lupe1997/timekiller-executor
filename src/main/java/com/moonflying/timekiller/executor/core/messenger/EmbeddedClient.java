@@ -36,7 +36,7 @@ public class EmbeddedClient {
                                 public void initChannel(SocketChannel channel) throws Exception {
                                     channel.pipeline()
 //                                            .addLast(new ProtobufVarint32FrameDecoder())
-                                            .addLast(new ProtobufDecoder(ScheduledTaskMessage.TaskMessage.getDefaultInstance()))
+                                            .addLast(new ProtobufEncoder())
                                             .addLast(new EmbeddedClientHandler(appName))
 //                                            .addLast(new ProtobufVarint32LengthFieldPrepender())
                                             .addLast(new ProtobufEncoder());
