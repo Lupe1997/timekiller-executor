@@ -2,17 +2,14 @@ package com.moonflying.timekiller.executor.core.messenger;
 
 import com.moonflying.timekiller.executor.core.thread.ClientHandlerBizThreadPool;
 import com.moonflying.timekiller.executor.core.executor.ScheduledTaskExecutor;
-import com.moonflying.timekiller.proto.ScheduledTaskMessage;
+import com.moonflying.timekiller.msgproto.ScheduledTaskMessage;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.timeout.IdleStateEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
 import java.util.stream.Collectors;
 
 /**
@@ -43,7 +40,8 @@ public class EmbeddedClientHandler extends SimpleChannelInboundHandler<Scheduled
                         e -> ScheduledTaskMessage.ScheduledTask.newBuilder()
                                 .setAppName(this.appName)
                                 .setTaskName(e.getKey())
-                                .setCorn(((ScheduledTaskExecutor) e.getValue()).getCorn())
+                                .setCorn(e.getValue().getCorn())
+                                .setZone(e.getValue().getZone())
                                 .build()
                 )
                 .collect(Collectors.toList());

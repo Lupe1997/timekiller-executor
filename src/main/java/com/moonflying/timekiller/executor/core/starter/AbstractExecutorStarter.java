@@ -59,7 +59,9 @@ public abstract class AbstractExecutorStarter {
         executeMethod.setAccessible(true);
 
         // registry scheduledTaskHandler
-        ScheduledTaskExecutor.registerScheduledTaskExecutor(taskName, new ScheduledTaskExecutor(bean, scheduledTask.cron(), executeMethod));
+        ScheduledTaskExecutor.registerScheduledTaskExecutor(
+                taskName, new ScheduledTaskExecutor(bean, scheduledTask.cron(), scheduledTask.zone(), executeMethod)
+        );
     }
 
     // ---------------------- executor-server (rpc customer) ----------------------

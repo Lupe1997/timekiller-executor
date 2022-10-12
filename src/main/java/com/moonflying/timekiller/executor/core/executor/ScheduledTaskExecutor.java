@@ -18,11 +18,13 @@ public class ScheduledTaskExecutor {
 
     private final Object scheduledTaskBean;
     private final String corn;
+    private final String zone;
     private final Method scheduledTaskMethod;
 
-    public ScheduledTaskExecutor(Object scheduledTaskBean, String corn, Method scheduledTaskMethod) {
+    public ScheduledTaskExecutor(Object scheduledTaskBean, String corn, String zone, Method scheduledTaskMethod) {
         this.scheduledTaskBean = scheduledTaskBean;
         this.corn = corn;
+        this.zone = zone;
         this.scheduledTaskMethod = scheduledTaskMethod;
     }
 
@@ -50,5 +52,9 @@ public class ScheduledTaskExecutor {
 
     public String getCorn() {
         return this.corn;
+    }
+
+    public String getZone() {
+        return this.zone;
     }
 }

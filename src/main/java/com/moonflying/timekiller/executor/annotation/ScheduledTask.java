@@ -20,4 +20,10 @@ public @interface ScheduledTask {
      * Cron expression.
      */
     String cron();
+
+    /**
+     * time zone
+     * The data from #ZoneId.getAvailableZoneIds()
+     */
+    String zone();
 }
